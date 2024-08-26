@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class SeleniumUtility extends BaseSetup {
     private static final Logger LOGGER = LogManager.getLogger(SeleniumUtility.class);
-    private WebDriverWait wait;
+
 
     private WebElement waitForVisibilityOfElement(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -58,5 +58,8 @@ public class SeleniumUtility extends BaseSetup {
 
     public String getElementText(By locator){
         return waitForVisibilityOfElement(locator).getText();
+    }
+    public WebElement getElement(By locator){
+        return waitForVisibilityOfElement(locator);
     }
 }

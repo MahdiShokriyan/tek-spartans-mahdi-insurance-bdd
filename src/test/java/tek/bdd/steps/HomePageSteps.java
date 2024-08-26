@@ -8,9 +8,9 @@ import tek.bdd.utilities.SeleniumUtility;
 public class HomePageSteps extends SeleniumUtility {
 
     @Then("validate the title is {string}")
-    public void validateTheTitleIs(String expectedresult) {
+    public void validateTheTitleIs(String expectedResult) {
         String actualResult = getTitleElement();
-        Assert.assertEquals("Both name should match", expectedresult, actualResult);
+        Assert.assertEquals("Both name should match", expectedResult, actualResult);
     }
 
     @Then("Create Primary Account Button is exist")
