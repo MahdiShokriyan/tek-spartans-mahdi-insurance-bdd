@@ -10,12 +10,11 @@ import org.junit.runner.RunWith;
         features = "classpath:features/CreateAccount.feature",
         glue = "tek.bdd.steps",
         dryRun = false,
-        tags = "@userStory5",
+        tags = "@userStory3",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
                 "html:target/cucumber_report/index.html"
         }
-
 )
 public class TestRunner {
 }

@@ -35,6 +35,14 @@ public class CreateAccountSteps extends SeleniumUtility {
         Assert.assertEquals("Both email should be exactly the same Email: ", CommonSteps.randomEmail, actualResult);
     }
 
+    @Then("validate the error message should be {string}")
+    public void validateTheErrorMessageShouldBe(String expectedResult) {
+        String actualResult = getElementText(CreateAccountPage.ERROR_MESSAGE);
+        actualResult = actualResult.replace("ERROR", "").trim();
+        Assert.assertEquals("Both message should be the same: ", expectedResult, actualResult);
+
+    }
+
     @When("user fill the Create new account form")
     public void userFillTheCreateNewAccountForm(DataTable dataTable) {
 
@@ -55,10 +63,8 @@ public class CreateAccountSteps extends SeleniumUtility {
 
         fullName = firstName + " " + lastName;
 
-
-
-
     }
+
     @When("user fill the Sign up account")
     public void userFillTheSignUpAccount() {
         userNameToUse = emailToUse.substring(0, emailToUse.indexOf("@"));

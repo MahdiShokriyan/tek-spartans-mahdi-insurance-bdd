@@ -33,7 +33,7 @@ Feature: create account features
     When the user types "SDET Engineer" into the "Employment Status" field
     When the user types "10/10/1990" into the "Date Of Birth" field
     Then user click on a visible text button "Create Account"
-    Then validate the error message should be "ERROR"
+    Then validate the error message should be "Account with email mahdi.shokriyan@gmail.com is exist"
 
   @userStory5
   Scenario: create account and login and validate name
