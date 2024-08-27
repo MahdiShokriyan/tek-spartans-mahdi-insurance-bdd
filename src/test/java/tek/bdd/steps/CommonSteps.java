@@ -1,5 +1,7 @@
 package tek.bdd.steps;
 
+import com.sun.source.tree.TryTree;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -35,6 +37,14 @@ public class CommonSteps extends SeleniumUtility {
                 ("//label[text() = '" + field + "']//following-sibling::div/select"));
         Select select = new Select(element);
         select.selectByVisibleText(value);
+    }
+    @Then("user wait for {int} second")
+    public void userWaitForSecond(Integer sec) {
+        try {
+            Thread.sleep(sec * 1000);
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+        }
     }
 
 

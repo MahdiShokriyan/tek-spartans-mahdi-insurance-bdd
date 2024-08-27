@@ -18,7 +18,7 @@ public class HooksSteps extends SeleniumUtility {
             byte[] screeShot = takeScreenShot();
             scenario.attach(screeShot, "image/jpg", "failed_Scenario");
         }
-            quitBrowser();
+          quitBrowser();
 
     }
 }

@@ -46,6 +46,14 @@ Feature: create account features
     When the user Choose "Mr." from the "Title / Prefix" list
     When the user Choose "Male" from the "Gender" list
     When the user Choose "Single" from the "Marital Status" list
+    Then user click on a visible text button "Create Account"
+    #Then user wait for 3 second
+    When user fill the Sign up account
+    Then user click on a visible text button "Submit"
+    Then user wait for 1 second
+    Then user login with valid username and password
+    Then user click on a visible text button "Sign In"
+    Then user click on profile button and validate the FULL Name
 
 
 
