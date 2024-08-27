@@ -30,7 +30,7 @@ public class SeleniumUtility extends BaseSetup {
     }
 
     public void clickOnElement(By locator) {
-        LOGGER.info("Click on the element by {} ", locator);
+        LOGGER.info("Click on the element by {} ", getElementText(locator));
         getWait().until(ExpectedConditions.elementToBeClickable(locator))
                 .click();
     }
@@ -54,6 +54,7 @@ public class SeleniumUtility extends BaseSetup {
     public String getTitleElement(){
         LOGGER.info("getting the tittle of the webPage: ");
         return getDriver().getTitle();
+
     }
 
     public String getElementText(By locator){

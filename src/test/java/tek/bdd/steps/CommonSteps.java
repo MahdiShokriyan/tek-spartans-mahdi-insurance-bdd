@@ -31,9 +31,11 @@ public class CommonSteps extends SeleniumUtility {
 
     @When("the user Choose {string} from the {string} list")
     public void chooseFromTheDropDownList(String value, String field) {
-        WebElement element = getElement(By.xpath("//label[text() = '" + field + "']//following-sibling::div/select"));
+        WebElement element = getElement(By.xpath
+                ("//label[text() = '" + field + "']//following-sibling::div/select"));
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
+
 
 }
