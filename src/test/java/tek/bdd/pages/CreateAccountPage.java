@@ -18,6 +18,7 @@ public class CreateAccountPage {
     public static final By SIGN_UP_TITLE = By.xpath("//h2[text()='Sign up your account']");
     public static final By SIGN_UP_NAME = By.xpath("//h2[text()='Sign up your account']/following-sibling::h2[1]");
     public static final By SIGN_UP_EMAIL = By.xpath("//h2[text()='Sign up your account']/following-sibling::h2[2]");
+    public static final By EXISTING_EMAIL_ERROR = By.xpath("//div[@data-status='error']");
 
 
 }

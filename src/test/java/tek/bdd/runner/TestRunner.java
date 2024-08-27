@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "classpath:features/CreateAccount.feature",
         glue = "tek.bdd.steps",
         dryRun = false,
-        tags = "@userStory2",
+        tags = "@userStory5",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
                 "html:target/cucumber_report/index.html"

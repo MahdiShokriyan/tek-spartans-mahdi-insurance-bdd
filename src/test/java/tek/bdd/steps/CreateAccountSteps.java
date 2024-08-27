@@ -5,6 +5,8 @@ import org.junit.Assert;
 import tek.bdd.pages.CreateAccountPage;
 import tek.bdd.utilities.SeleniumUtility;
 
+import static tek.bdd.steps.CommonSteps.randomEmail;
+
 public class CreateAccountSteps extends SeleniumUtility {
 
     @Then("validate that {string} is visible as form title")
@@ -21,14 +23,7 @@ public class CreateAccountSteps extends SeleniumUtility {
     @Then("email address shows as expected")
     public void emailAddressShowsAsExpected() {
        String actualResult = getElementText(CreateAccountPage.SIGN_UP_EMAIL);
-       Assert.assertEquals("Both email should be exactly the same Email: ",
-               CommonSteps.randomEmail, actualResult);
-    }
-    public void fillTheFormAndClick(){
-
-        sendText(CreateAccountPage.EMAIL_INPUT,"mathias@gmail.com");
-        sendText(CreateAccountPage.FIRST_NAME_INPUT,"Mathias");
-
+       Assert.assertEquals("Both email should be exactly the same Email: ",randomEmail, actualResult);
     }
 
 

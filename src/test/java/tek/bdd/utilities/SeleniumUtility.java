@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.bdd.base.BaseSetup;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
     private static final Logger LOGGER = LogManager.getLogger(SeleniumUtility.class);
@@ -51,16 +52,25 @@ public class SeleniumUtility extends BaseSetup {
         field.clear();
         field.sendKeys(text);
     }
-    public String getTitleElement(){
+
+    public String getTitleElement() {
         LOGGER.info("getting the tittle of the webPage: ");
         return getDriver().getTitle();
 
     }
 
-    public String getElementText(By locator){
+    public String getElementText(By locator) {
+        LOGGER.info("getting the text value of {}", locator);
         return waitForVisibilityOfElement(locator).getText();
     }
-    public WebElement getElement(By locator){
+
+    public WebElement getElement(By locator) {
+        LOGGER.info("getting the element by {}", locator);
         return waitForVisibilityOfElement(locator);
+    }
+
+    public List<WebElement> getAllElements(By locator) {
+        LOGGER.info("Getting all element located by {}", locator);
+        return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 }
