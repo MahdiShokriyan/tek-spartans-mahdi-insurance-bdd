@@ -5,11 +5,11 @@ Feature: create account features
     When user click on a link text button "Create Primary Account"
 
 
-  Scenario:Navigate to Home page then click on Create Primary Account Button. User should navigate to Create Account form page validate Form Title as Expected
+  Scenario:Navigate to Create Account Page and Validate Form Title
     Then validate that "Create Primary Account Holder" is visible as form title
 
   @userStory2
-  Scenario: On Create primary account holder form fill up the form and click on create Account Button Validate user is in sign up page and email address is as expected
+  Scenario: fill the form on Create primary account page and validate the email and title on sign up page
     When the user types "random" into the "Email Address" field
     When the user Choose "Mr." from the "Title / Prefix" list
     When the user types "Stephan" into the "First Name" field
