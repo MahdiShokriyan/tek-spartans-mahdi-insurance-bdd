@@ -32,7 +32,7 @@ public class CreateAccountSteps extends SeleniumUtility {
     @Then("email address shows as expected")
     public void emailAddressShowsAsExpected() {
         String actualResult = getElementText(CreateAccountPage.SIGN_UP_EMAIL);
-        Assert.assertEquals("Both email should be exactly the same Email: ", CommonSteps.randomEmail, actualResult);
+        Assert.assertEquals("Both email should be exactly the same Email: ", emailToUse, actualResult);
     }
 
     @Then("validate the error message should be {string}")
@@ -75,16 +75,21 @@ public class CreateAccountSteps extends SeleniumUtility {
 
     @Then("user login with valid username and password")
     public void userLoginWithValidUsernameAndPassword() {
-
         sendText(CreateAccountPage.USERNAME_INPUT,userNameToUse);
         sendText(CreateAccountPage.PASSWORD_INPUT,"Password@123");
     }
 
-    @Then("user click on profile button and validate the FULL Name")
-    public void userClickOnProfileButtonAndValidateTheFULLName() {
-       clickOnElement(ProfilePage.PROFILE_BUTTON);
-       String actualResult = getElementText(ProfilePage.FULL_NAME);
-       Assert.assertEquals("both name should be the same", fullName,actualResult);
+    @Then("user click on profile button and validate the {string}")
+    public void userClickOnProfileButtonAndValidateTheFULLName(String name) {
+       if (name.equalsIgnoreCase("full Name")) {
+           clickOnElement(ProfilePage.PROFILE_BUTTON);
+           String actualResult = getElementText(ProfilePage.FULL_NAME);
+           Assert.assertEquals("both name should be the same", fullName, actualResult);
+       }else {
+           clickOnElement(ProfilePage.PROFILE_BUTTON);
+           String actualResult = getElementText(ProfilePage.FULL_NAME);
+           Assert.assertEquals("both name should be the same", name, actualResult);
+       }
     }
 
 }
