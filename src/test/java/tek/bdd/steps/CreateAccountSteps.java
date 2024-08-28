@@ -90,6 +90,7 @@ public class CreateAccountSteps extends SeleniumUtility {
            String actualResult = getElementText(ProfilePage.FULL_NAME);
            Assert.assertEquals("both name should be the same", name, actualResult);
        }
+
     }
 
 }
