@@ -1,6 +1,5 @@
 package tek.bdd.steps;
 
-import com.sun.source.tree.TryTree;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -46,6 +45,5 @@ public class CommonSteps extends SeleniumUtility {
             Thread.currentThread().interrupt();
         }
     }
-
 
 }

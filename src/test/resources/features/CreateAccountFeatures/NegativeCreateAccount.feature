@@ -4,8 +4,8 @@ Feature: All Negative tests
   Background:
     When user click on a link text button "Create Primary Account"
     When the user Choose "Mr." from the "Title / Prefix" list
-    When the user types "Stephan" into the "First Name" field
-    When the user types "Gucci" into the "Last Name" field
+    When the user types "Elijah" into the "First Name" field
+    When the user types "Phoenix" into the "Last Name" field
     When the user Choose "Male" from the "Gender" list
     When the user Choose "Single" from the "Marital Status" list
     When the user types "SDET Engineer" into the "Employment Status" field

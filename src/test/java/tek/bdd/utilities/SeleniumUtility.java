@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.bdd.base.BaseSetup;
 
@@ -72,5 +73,12 @@ public class SeleniumUtility extends BaseSetup {
     public List<WebElement> getAllElements(By locator) {
         LOGGER.info("Getting all element located by {}", locator);
         return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
+    public void selectFromDropDownByValue(By locator, String value){
+        LOGGER.info("finding element of a drop down menu by {} and value is {}", locator, value);
+        WebElement element = getElement(locator);
+        Select select = new Select(element);
+        select.selectByValue(value);
     }
 }

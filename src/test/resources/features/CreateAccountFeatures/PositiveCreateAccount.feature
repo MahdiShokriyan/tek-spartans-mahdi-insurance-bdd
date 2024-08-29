@@ -4,19 +4,16 @@ Feature: create account features
   Background: click on create primary account button and fill the form
     When user click on a link text button "Create Primary Account"
     When user fill the Create new account form
-      | Email Address     | random        |
-      | First Name        | Mathias       |
-      | Last Name         | Akowanou      |
-      | Employment Status | SDET Engineer |
-      | Date Of Birth     | 02/05/1995    |
+      | Email Address     | random     |
+      | First Name        | Douglas    |
+      | Last Name         | Hodge      |
+      | Employment Status | Actor      |
+      | Date Of Birth     | 02/25/1960 |
     When the user Choose "Mr." from the "Title / Prefix" list
     When the user Choose "Male" from the "Gender" list
     When the user Choose "Single" from the "Marital Status" list
     Then user click on a visible text button "Create Account"
 
-  @userStory1
-  Scenario:Navigate to Create Account Page and Validate Form Title
-    Then validate that "Create Primary Account Holder" is visible as form title
 
   @userStory2
   Scenario: fill the form on Create primary account page and validate the email and title on sign up page

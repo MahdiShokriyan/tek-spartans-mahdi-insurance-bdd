@@ -53,7 +53,7 @@ public class CreateAccountSteps extends SeleniumUtility {
         String employmentStatus = data.get("Employment Status");
         String dateOfBirth = data.get("Date Of Birth");
         emailToUse = (email.equalsIgnoreCase("random")) ?
-                JavaUtilities.emailGenerator("Mathias") : email;
+                JavaUtilities.emailGenerator("Doug.Hodge") : email;
 
         sendText(CreateAccountPage.EMAIL_INPUT, emailToUse);
         sendText(CreateAccountPage.FIRST_NAME_INPUT, firstName);
@@ -90,7 +90,5 @@ public class CreateAccountSteps extends SeleniumUtility {
            String actualResult = getElementText(ProfilePage.FULL_NAME);
            Assert.assertEquals("both name should be the same", name, actualResult);
        }
-
     }
-
 }

@@ -10,10 +10,7 @@ import tek.bdd.utilities.SeleniumUtility;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class PlanSteps extends SeleniumUtility {
 
@@ -37,8 +34,8 @@ public class PlanSteps extends SeleniumUtility {
         }
 
         List<WebElement> expireDateElements = getAllElements(PlanPage.DATE_EXPIRE_LIST);
-        for (WebElement expireElement : expireDateElements) {
-            String retrievedExpiredDateStr = expireElement.getText();
+        for (WebElement expireDateElement : expireDateElements) {
+            String retrievedExpiredDateStr = expireDateElement.getText();
             LocalDate retrievedExpiredDate = LocalDate.parse(retrievedExpiredDateStr, dateTimeFormatter);
             LocalDate expectedExpireDate = LocalDate.now(ZoneId.of("-05:00")).plusDays(1);
             softAssert.assertEquals(retrievedExpiredDate,expectedExpireDate, "Both date should match");
