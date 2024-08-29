@@ -9,5 +9,8 @@ Feature: Plans features
 
   @PlanStory1
   Scenario: navigate to CSR account and open Plans and validate 4 rows is available
-
     Then validate 4 rows is available
+
+  @PlanStory2
+  Scenario: navigate to CSR account and open Plans and validate create date and expire date
+    Then validate create date is today date and expire date is one day after
