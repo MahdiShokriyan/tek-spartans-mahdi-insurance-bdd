@@ -3,8 +3,6 @@ package tek.bdd.steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import tek.bdd.utilities.JavaUtilities;
 import tek.bdd.utilities.SeleniumUtility;
 
@@ -15,6 +13,7 @@ public class CommonSteps extends SeleniumUtility {
     public void clickOnButtonByLinkText(String text) {
         clickOnElement(By.linkText(text));
     }
+
     @When("user click on a visible text button {string}")
     public void clickOnButtonByVisibleText(String text) {
         clickOnElement(By.xpath("//button[text() = '"+text+"']"));
@@ -32,10 +31,9 @@ public class CommonSteps extends SeleniumUtility {
 
     @When("the user Choose {string} from the {string} list")
     public void chooseFromTheDropDownList(String value, String field) {
-        WebElement element = getElement(By.xpath
-                ("//label[text() = '" + field + "']//following-sibling::div/select"));
-        Select select = new Select(element);
-        select.selectByVisibleText(value);
+
+        selectFromDropDownByValue(By.xpath(
+                "//label[text() = '" + field + "']//following-sibling::div/select"),value);
     }
     @Then("user wait for {int} second")
     public void userWaitForSecond(Integer sec) {

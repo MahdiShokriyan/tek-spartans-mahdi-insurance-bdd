@@ -7,6 +7,7 @@ import org.testng.asserts.SoftAssert;
 import tek.bdd.pages.PlanPage;
 import tek.bdd.utilities.SeleniumUtility;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -26,19 +27,23 @@ public class PlanSteps extends SeleniumUtility {
         SoftAssert softAssert = new SoftAssert();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
         List<WebElement> createDateElements = getAllElements(PlanPage.DATE_CREATE_LIST);
-        for (WebElement element : createDateElements) {
-            String retrievedDateStr = element.getText();
-            LocalDate retrievedDate = LocalDate.parse(retrievedDateStr, dateTimeFormatter);
-            LocalDate todayDate = LocalDate.now(ZoneId.of("-05:00"));
-            softAssert.assertEquals(retrievedDate, todayDate, "both date should match");
-        }
+        try {
+            for (WebElement element : createDateElements) {
+                String retrievedDateStr = element.getText();
+                LocalDate retrievedDate = LocalDate.parse(retrievedDateStr, dateTimeFormatter);
+                LocalDate todayDate = LocalDate.now(ZoneId.of("-05:00"));
+                softAssert.assertEquals(retrievedDate, todayDate, "both date should match");
+            }
 
-        List<WebElement> expireDateElements = getAllElements(PlanPage.DATE_EXPIRE_LIST);
-        for (WebElement expireDateElement : expireDateElements) {
-            String retrievedExpiredDateStr = expireDateElement.getText();
-            LocalDate retrievedExpiredDate = LocalDate.parse(retrievedExpiredDateStr, dateTimeFormatter);
-            LocalDate expectedExpireDate = LocalDate.now(ZoneId.of("-05:00")).plusDays(1);
-            softAssert.assertEquals(retrievedExpiredDate,expectedExpireDate, "Both date should match");
+            List<WebElement> expireDateElements = getAllElements(PlanPage.DATE_EXPIRE_LIST);
+            for (WebElement expireDateElement : expireDateElements) {
+                String retrievedExpiredDateStr = expireDateElement.getText();
+                LocalDate retrievedExpiredDate = LocalDate.parse(retrievedExpiredDateStr, dateTimeFormatter);
+                LocalDate expectedExpireDate = LocalDate.now(ZoneId.of("-05:00")).plusDays(1);
+                softAssert.assertEquals(retrievedExpiredDate, expectedExpireDate, "Both date should match");
+            }
+        }catch (DateTimeException e ){
+            throw new RuntimeException("use correct date format: " + e.getMessage());
         }
         softAssert.assertAll();
     }

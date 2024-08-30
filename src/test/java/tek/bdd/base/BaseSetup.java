@@ -75,7 +75,7 @@ public class BaseSetup {
         LOGGER.debug("openning following Url: {}", url);
         driver.get(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     //Quit the Browser if the value is not Null
