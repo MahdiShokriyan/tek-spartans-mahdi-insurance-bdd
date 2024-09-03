@@ -3,6 +3,8 @@ package tek.bdd.steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import tek.bdd.utilities.JavaUtilities;
 import tek.bdd.utilities.SeleniumUtility;
 
@@ -32,8 +34,11 @@ public class CommonSteps extends SeleniumUtility {
     @When("the user Choose {string} from the {string} list")
     public void chooseFromTheDropDownList(String value, String field) {
 
-        selectFromDropDownByValue(By.xpath(
-                "//label[text() = '" + field + "']//following-sibling::div/select"),value);
+     WebElement element= getElement(By.xpath(
+                "//label[text() = '"
+                        + field + "']//following-sibling::div/select"));
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
     }
     @Then("user wait for {int} second")
     public void userWaitForSecond(Integer sec) {
