@@ -8,7 +8,7 @@ Feature: create account features
       | First Name        | Douglas    |
       | Last Name         | Hodge      |
       | Employment Status | Actor      |
-      | Date Of Birth     | 02/25/1960 |
+      | Date Of Birth     | 02/21/1990 |
     When the user Choose "Mr." from the "Title / Prefix" list
     When the user Choose "Male" from the "Gender" list
     When the user Choose "Single" from the "Marital Status" list
