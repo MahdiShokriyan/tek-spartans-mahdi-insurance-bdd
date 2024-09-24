@@ -69,10 +69,10 @@ public class BaseSetup {
                 options.addArguments("--headless");
             driver = new FirefoxDriver(options);
         } else {
-            throw new RuntimeException("Choose correct browser type betweem , Chrome , Fire Fox, Edge , Safari");
+            throw new RuntimeException("Choose correct browser type between , Chrome , Fire Fox, Edge , Safari");
         }
         String url = properties.getProperty("ui.url");
-        LOGGER.debug("openning following Url: {}", url);
+        LOGGER.debug("opening following Url: {}", url);
         driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
