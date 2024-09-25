@@ -1,4 +1,4 @@
-@Smoke
+@Smoke @Regression
 Feature: All Negative tests
 
   Background:

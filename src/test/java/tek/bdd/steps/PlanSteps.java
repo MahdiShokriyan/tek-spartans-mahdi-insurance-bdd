@@ -42,7 +42,7 @@ public class PlanSteps extends SeleniumUtility {
                 LocalDate expectedExpireDate = LocalDate.now(ZoneId.of("-05:00")).plusDays(1);
                 softAssert.assertEquals(retrievedExpiredDate, expectedExpireDate, "Both date should match");
             }
-        }catch (DateTimeException e ){
+        } catch (DateTimeException e) {
             throw new RuntimeException("use correct date format: " + e.getMessage());
         }
         softAssert.assertAll();
